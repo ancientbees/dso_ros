@@ -8,7 +8,8 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
 )
 
-set(DSO_PATH $ENV{DSO_PATH})
+set(DSO_PATH "/home/jamesgarforth/Repos/dso")
+#set(DSO_PATH $ENV{DSO_PATH})
 message("\n\n---- LOOKING FOR DSO at\n\"${DSO_PATH}\"")
 
 
@@ -20,6 +21,7 @@ find_package(OpenCV REQUIRED)
 message("\n\n---- FOUND OpenCV Headers at\n\"${OpenCV_INCLUDE_DIRS}\"")
 message("---- FOUND OpenCV Libs at\n\"${OpenCV_LIBS}\"")
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 find_package(Eigen3 REQUIRED)
 find_package(Boost COMPONENTS system thread)
 find_library(DSO_LIBRARY dso ${DSO_PATH}/build/lib)
